@@ -2,7 +2,7 @@
 utilizzo un pulsante (UIButton) e 
 implemento una funzione di gestione dell'azione che verrà chiamata quando il pulsante viene premuto. 
 
-import UIKit
+#import UIKit
 
 class ViewController: UIViewController {
 
