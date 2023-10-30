@@ -1,6 +1,6 @@
-//Per creare un tasto "Stop" per interrompere una corsa o un processo,
-puoi utilizzare un pulsante (UIButton) e 
-implementare una funzione di gestione dell'azione che verrà chiamata quando il pulsante viene premuto. 
+//Creo un tasto "Stop" per interrompere una corsa o un processo,
+utilizzo un pulsante (UIButton) e 
+implemento una funzione di gestione dell'azione che verrà chiamata quando il pulsante viene premuto. 
 
 import UIKit
 
