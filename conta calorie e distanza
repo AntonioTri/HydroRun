@@ -1,6 +1,5 @@
 // Utilizzo questa funzione per ottenere le calorie bruciate
-getBurnedCalories { calories in
-    if let calories = calories {
+getBurnedCalories { calories in if let calories = calories {
         print("Calorie bruciate: \(calories) kcal")
     } else {
         print("Impossibile ottenere le calorie bruciate")
