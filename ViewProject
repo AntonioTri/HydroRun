@@ -1,0 +1,60 @@
+Nome Progetto: HydroRun
+
+Descrizione generale: App di fitness che crea un percorso dinamico con punti di interesse nei parchi
+
+Focus user: Runners novizi e/o turisti
+
+Descrizione visiva per Figma:
+
+CLICCO APP:
+* App si apre
+* Se si apre la prima volta mi chiede di inserire 3 dati: Altezza, peso e livello fitness
+* App si presenta con una schermata iniziale, due tab bar profilo e running.. con una mappa
+
+CLICCO RUN:
+* L app ti mostra la mappa con i punti di interesse, hai la possibilità di cliccare sulla MAPPA e muoverti liberamente, e il bottone START
+
+CLICCO START:
+* Parte un percorso dinamico in base al mio livello di fitness, dal punto cui mi trovo.
+* In alto alla schermata del running è presente una barra con essi dati: KM FATTI & TIME 
+* In basso due tasti presenti STOP (sx) e PAUSA (dx)
+
+CLICCO STOP:
+* Ti chiede se sono sicuro di stoppare, in caso di si..
+* Termina la sessione e mi porta in RECORD
+
+CLICCO PAUSE:
+* Il tempo e i km si fermano, il tasto pause diventa il tasto continue\run\play
+
+CLICCO RECORD\PROFILE:
+* In alto della schermata è presente Dati utente con NICKNAME, ALTEZZA, PESO, ANNI
+* Una rotellinaìa in alto a destra che permette di modificare i dati
+* Nella stessa schermata è presente l historical
+HISTORICAL CONTIENE I DATI DELLA CORSA FATTA
+
+Possibili dati nel codice:
+
+
+Struct User{
+Int nickname
+Int age
+Int height
+Int weight
+Int fitnessLevel \\ livello da 0 a 10 per le abilità	 atletiche, un user lv 0 non può fare un percorso di 5km
+}
+
+Struct Run{
+Int runLevel
+DATA time
+DATA day/month/year
+Float kmDid
+Float kmToDo
+}
+
+\\ Day month e year è un dato che viene prese subito dopo aver cliccato start per evitare bug futuri
+\\ magari un user corre alle 11 di sera e finisce all’una, che data dovrebbe prendere?
+\\Prende la data del giorno in cui ha iniziato a correre + il tempo percorso	
+
+
+
+
