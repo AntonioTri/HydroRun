@@ -1,7 +1,7 @@
 # HydroRun
 This repository is going to contain HydroRun application's file.
 
-Tema members: 
+Team members: 
 1. Tridente Antonio: https://github.com/AntonioTri
 2. Biondi Morgan: https://github.com/MorganBiondi00
 3. Salvati Nicola: https://github.com/BirichinoMangiaPanino
