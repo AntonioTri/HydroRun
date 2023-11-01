@@ -13,7 +13,7 @@ struct MostraMappaFontane: View{
                 
                 //Con una closure andiamo a creare annotazioni sulla mappa aggiungendo un cerchio blu per ogni posizione
                 //etratta dall'array di posizione i, scriviamo inolter "fontanella" su ogni anotazione
-                Annotation("Fontanella", coordinate: fontane[i].coordinate){
+                Annotation(fontane[i].nome, coordinate: fontane[i].coordinate){
                     
                     //L'icona è da rivedere ...
                     ZStack{
