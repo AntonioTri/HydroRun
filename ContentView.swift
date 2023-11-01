@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-struct ContentView: View {
+struct ShowUserData: View {
     @State private var user = User.shared
     @State private var isEditingData = false
 
