@@ -10,3 +10,6 @@ Team members:
 6. Frascogna Antonio: https://github.com/Slaidness
 7. Stanzone Luca: https://github.com/luca1497
 8. Di Marco Luca: https://github.com/Lucadm03
+
+## Warninig!
+These files need to be unziped into an existing xcode project to work properly!
