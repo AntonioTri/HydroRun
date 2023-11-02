@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct User {
-    var isInitialLaunch: Bool
-    var nickname: String
-    var age: Int
-    var height: Double
-    var weight: Double
-    var fitnessLevel: Int
-    var runData: RunData?
+struct User: Codable {
+    var isInitialLaunch: Bool // Indicates whether it's the user's initial launch
+    var nickname: String // User's nickname
+    var age: Int // User's age
+    var height: Double // User's height in centimeters
+    var weight: Double // User's weight in kilograms
+    var fitnessLevel: Int // User's fitness level (1-10)
+    var runData: RunData? // Data related to the user's run
 
-    // Inizializzatore privato per creare un'istanza di User
+    // Private initializer to create an instance of User
     private init(isInitialLaunch: Bool, nickname: String, age: Int, height: Double, weight: Double, fitnessLevel: Int, runData: RunData? = nil) {
         self.isInitialLaunch = isInitialLaunch
         self.nickname = nickname
@@ -27,38 +27,52 @@ struct User {
         self.runData = runData
     }
 
-    // Metodo per salvare i dati dell'utente con UserDefaults
+    // Method to save user data using UserDefaults
     func save() {
-        let defaults = UserDefaults.standard
-        defaults.set(isInitialLaunch, forKey: "isInitialLaunch")
-        defaults.set(nickname, forKey: "nickname")
-        defaults.set(age, forKey: "age")
-        defaults.set(height, forKey: "height")
-        defaults.set(weight, forKey: "weight")
-        defaults.set(fitnessLevel, forKey: "fitnessLevel")
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(self) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "userData")
+        }
 
-        // Aggiungi la gestione del salvataggio dei dati di corsa
+        // Add handling for saving run data
         if let runData = runData {
             runData.save()
         }
     }
 
-    // Metodo per avviare una corsa e registrare i dati
+    // Method to start a run and record the data
     mutating func startRun(averageSpeed: Double, distance: Double, timeElapsed: TimeInterval) {
         let runData = RunData(date: Date(), averageSpeed: averageSpeed, distance: distance, timeElapsed: timeElapsed)
         self.runData = runData
     }
 
-    // Metodo per completare una corsa e salvare i dati
+    // Method to complete a run and save the data
     mutating func completeRun() {
-        self.save() // Salva i dati dell'utente e della corsa
+        self.save() // Save user and run data
+    }
+
+    // Computed property to access historical run data
+    var historicalRunData: [RunData] {
+        if let savedRunData = UserDefaults.standard.object(forKey: "historicalRunData") as? Data {
+            let decoder = JSONDecoder()
+            if let decodedRunData = try? decoder.decode([RunData].self, from: savedRunData) {
+                return decodedRunData
+            }
+        }
+        return []
     }
 }
 
-// Metodo statico per ottenere l'istanza con i dati dell'utente
 extension User {
     static var shared: User {
         let defaults = UserDefaults.standard
+        if let savedUser = defaults.object(forKey: "userData") as? Data {
+            let decoder = JSONDecoder()
+            if let decodedUser = try? decoder.decode(User.self, from: savedUser) {
+                return decodedUser
+            }
+        }
         return User(
             isInitialLaunch: defaults.bool(forKey: "isInitialLaunch"),
             nickname: defaults.string(forKey: "nickname") ?? "",
@@ -66,7 +80,7 @@ extension User {
             height: defaults.double(forKey: "height"),
             weight: defaults.double(forKey: "weight"),
             fitnessLevel: defaults.integer(forKey: "fitnessLevel"),
-            runData: RunData.shared // Carica i dati della corsa
+            runData: RunData.shared
         )
     }
 }

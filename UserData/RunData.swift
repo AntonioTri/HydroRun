@@ -7,39 +7,30 @@
 
 import Foundation
 
-struct RunData {
-    var date: Date // Giorno in cui hai corso
-    var averageSpeed: Double // Velocità media
-    var distance: Double // Chilometraggio
-    var timeElapsed: TimeInterval // Tempo impiegato
+struct RunData: Codable {
+    var date: Date // Date of the run
+    var averageSpeed: Double // Average speed during the run (m/s)
+    var distance: Double // Distance covered during the run (m)
+    var timeElapsed: TimeInterval // Time elapsed during the run (s)
 
-    // Inizializzatore per creare un'istanza di RunData
-    init(date: Date, averageSpeed: Double, distance: Double, timeElapsed: TimeInterval) {
-        self.date = date
-        self.averageSpeed = averageSpeed
-        self.distance = distance
-        self.timeElapsed = timeElapsed
-    }
-
-    // Metodo per salvare i dati della corsa con UserDefaults
+    // Method to save run data using UserDefaults
     func save() {
-        let defaults = UserDefaults.standard
-        defaults.set(date, forKey: "runDate")
-        defaults.set(averageSpeed, forKey: "averageSpeed")
-        defaults.set(distance, forKey: "distance")
-        defaults.set(timeElapsed, forKey: "timeElapsed")
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(self) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "runData")
+        }
     }
-}
 
-// Metodo statico per ottenere l'istanza con i dati della corsa
-extension RunData {
-    static var shared: RunData {
+    // Static method to retrieve an instance with run data from UserDefaults
+    static var shared: RunData? {
         let defaults = UserDefaults.standard
-        return RunData(
-            date: defaults.object(forKey: "runDate") as? Date ?? Date(),
-            averageSpeed: defaults.double(forKey: "averageSpeed"),
-            distance: defaults.double(forKey: "distance"),
-            timeElapsed: defaults.double(forKey: "timeElapsed")
-        )
+        if let savedRunData = defaults.object(forKey: "runData") as? Data {
+            let decoder = JSONDecoder()
+            if let decodedRunData = try? decoder.decode(RunData.self, from: savedRunData) {
+                return decodedRunData
+            }
+        }
+        return nil
     }
 }
