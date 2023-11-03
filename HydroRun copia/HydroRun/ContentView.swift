@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-
-import SwiftUI
+import MapKit
+import CoreLocation
 
 @main
 struct HydroRunApp: App {
@@ -25,30 +25,36 @@ struct ContentView: View {
     var body: some View {
        
         TabView(selection: $selection){
-            
-            Text("Ti trovi nel tuo profilo")
-            .tabItem {
-                Image(systemName: "person.fill")
-                Text("Profile")
-            }
-            .tag(1)
-            
-            
-            VStack {
-                MostraMappaFontane()
-                BottoneStart()
-                    .padding(10)
+            ZStack {
+                VStack {
+                    MostraMappaFontEPos()
+                    BottoneStart()
+                        .padding(10)
+                }
+                ButtonMaps()
+                    .position(x: 350, y: 80)
             }
             
             .tabItem {
                 Image(systemName: "figure.run")
                 Text("Run")
-                    
             }
             .tag(2)
+            
+            Profile()
+            .tabItem {
+                Image(systemName: "person.fill")
+                Text("Profile")
+            }
+            .tag(1)
         }
         .accentColor(.orange)
     }
+
+    let locationManager = CLLocationManager()
+    
+    
+
 }
 
 
