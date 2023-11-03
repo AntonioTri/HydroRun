@@ -17,21 +17,21 @@ struct ButtonMaps: View {
             
             Rectangle()
                 .frame(width: 50, height: 100)
-                .foregroundColor(.gray)
-                .cornerRadius(5)
+                .foregroundColor(.white)
+                .cornerRadius(12)
                 .overlay(
                     
                     VStack {
                         Image(systemName: "map.fill")
                             .foregroundColor(.black)
-                            .padding(10)
+                            .padding(4)
                         Rectangle()
                             .frame(height: 1)
                             .foregroundColor(.black)
                             .padding(5)
                         Image(systemName: "location")
                             .foregroundColor(.black)
-                            .padding(10)
+                            .padding(4)
                         
                                         
                     }
