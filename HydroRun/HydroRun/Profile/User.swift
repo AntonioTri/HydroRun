@@ -22,8 +22,8 @@ struct User {
         self.isInitialLaunch = false
         self.nickname = ""
         self.age = 0
-        self.height = 0.0        
-        self.weight = 0.0
+        self.height = 0
+        self.weight = 0
         self.fitnessLevel = 1
         self.runData = nil
         
