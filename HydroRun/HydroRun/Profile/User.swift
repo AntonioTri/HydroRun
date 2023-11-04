@@ -8,6 +8,7 @@
 import Foundation
 
 struct User {
+    
     var isInitialLaunch: Bool
     var nickname: String
     var age: Int
@@ -15,7 +16,20 @@ struct User {
     var weight: Double
     var fitnessLevel: Int
     var runData: RunData?
+    
+    public init (){
+        
+        self.isInitialLaunch = false
+        self.nickname = ""
+        self.age = 0
+        self.height = 0
+        self.weight = 0
+        self.fitnessLevel = 1
+        self.runData = nil
+        
+    }
 
+    
     // Inizializzatore privato per creare un'istanza di User
     private init(isInitialLaunch: Bool, nickname: String, age: Int, height: Double, weight: Double, fitnessLevel: Int, runData: RunData? = nil) {
         self.isInitialLaunch = isInitialLaunch
@@ -68,5 +82,18 @@ extension User {
             fitnessLevel: defaults.integer(forKey: "fitnessLevel"),
             runData: RunData.shared // Carica i dati della corsa
         )
+    }
+}
+
+
+class UserViewModel: ObservableObject {
+    @Published var user: User
+
+    init() {
+        self.user = User.shared
+    }
+
+    func saveUser() {
+        user.save()
     }
 }
