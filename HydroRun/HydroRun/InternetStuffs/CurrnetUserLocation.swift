@@ -2,6 +2,7 @@ import SwiftUI
 import UIKit
 import CoreLocation
 
+//Classe per ottenere la posizione in tempo reale
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     private var locationManager = CLLocationManager()
