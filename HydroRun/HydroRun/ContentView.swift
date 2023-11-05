@@ -28,7 +28,7 @@ struct ContentView: View {
             ZStack {
                 VStack {
                     MostraMappaFontEPos()
-                    BottoneNuovo()
+                    BottoneStart()
                         .padding(10)
                 }
                 ButtonMaps()
