@@ -9,16 +9,16 @@ import SwiftUI
 
 struct BottoneNuovo: View {
     
+    //Variabili di ambiente
     @State private var isRunning = false
     @State private var isPaused = false
     @State private var elapsedTime: TimeInterval = 0
     @State private var startTimerOnPlay = false
     
+    //Variabili di start e stop dei bottoni
     @State private var showStartButton = true
     @State private var showingStopConfirmation = false
     @State private var showPauseStopButtons = false
-    
-    
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var formattedTime: String {
@@ -86,7 +86,6 @@ struct BottoneNuovo: View {
                             
                     }
                     .contentShape(Circle())
-                    
                     Spacer()
 
                     Button(action: {

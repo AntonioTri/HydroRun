@@ -59,7 +59,7 @@ func WeatherModifier(nroFontanelle: Int, temperatura: Double, humidity: Double) 
 
     if humidity <= 60 && temperatura <= 25 { nro -= 1 }
     if humidity > 60 && temperatura >= 30 { nro += 1 }
-    if humidity > 60 { nro += 1 }
+    if humidity > 70 { nro += 1 }
     if humidity > 85 { nro += 1 }
         
     return nro

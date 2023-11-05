@@ -24,6 +24,7 @@ struct BottoneStart: View {
                         .foregroundColor(.white)
                 )
         })
+        .contentShape(Circle())
     }
 }
 

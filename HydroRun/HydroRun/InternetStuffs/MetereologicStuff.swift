@@ -1,4 +1,5 @@
 import SwiftUI
+
 /*
  In questo file vi troviamo diversi elementi che nel complesso servono ad eseguire una HTTPS request ad una API
  per le condiizoni meteo, vengono create le strutture dati capaci di contenere tali dati, tramite dei processi
