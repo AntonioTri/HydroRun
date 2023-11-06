@@ -9,16 +9,22 @@ import SwiftUI
 
 struct BottoneStart: View {
     
+    
     //Variabili di ambiente
     @State private var isRunning = false
     @State private var isPaused = false
     @State private var elapsedTime: TimeInterval = 0
     @State private var startTimerOnPlay = false
     
+    @Binding var timerAndKm: Bool
+    @Binding var pauseTimer: Bool
+    
     //Variabili di start e stop dei bottoni
     @State private var showStartButton = true
     @State private var showingStopConfirmation = false
     @State private var showPauseStopButtons = false
+
+    @State private var nroFontanelle = 0
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var formattedTime: String {
@@ -28,34 +34,26 @@ struct BottoneStart: View {
 
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
-
+    
 
     var body: some View {
+        
+        
+        
         ZStack {
-            
-            if isRunning {
-                Rectangle()
-                    .fill(Color.white)
-                    .frame(width: 300, height: 45)
-                    .cornerRadius(10)
-                    .overlay(
-                        Text(formattedTime)
-                            .font(.largeTitle)
-                            .foregroundColor(.black)
-                    )
-                    .font(.largeTitle)
-                    .padding()
-                    .transition(.opacity)
-                    .offset(y: -330)
-            }
-            
             
             if showStartButton {
                 
-                Button(action: {
+                Button (action: {
+                    
                     showStartButton = false
                     showPauseStopButtons = true
+                    
                     isRunning = true
+                    isPaused = false
+                    
+                    timerAndKm = true
+                    pauseTimer = true
                     
                 }, label: {
                     Circle()
@@ -92,6 +90,7 @@ struct BottoneStart: View {
                         isPaused.toggle()
                         startTimerOnPlay = true
                         isRunning = true
+                        pauseTimer.toggle()
                         
                     }) {
                         Circle()
@@ -122,6 +121,9 @@ struct BottoneStart: View {
                     showPauseStopButtons = false
                     showStartButton = true
                     elapsedTime = 0
+                    timerAndKm = false
+                    
+                    historicals.append(HistoricalTemplate(kmTaken: 4, time: formattedTime, medVelocity: 6, WaterStops: 9))
                 },
                 secondaryButton: .cancel(Text("No"))
             )
@@ -129,6 +131,3 @@ struct BottoneStart: View {
     }
 }
 
-#Preview{
-    BottoneStart()
-}
