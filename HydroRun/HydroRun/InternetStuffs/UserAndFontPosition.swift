@@ -17,6 +17,9 @@ struct MostraMappaFontEPos: View{
         
         //Si inizializza una mappa
         Map(){
+            
+            
+    
             //Si esegue un ForEach che parte da 0 ed arriva al size dell nostro array fontanelle
             ForEach(0..<8) { i in
 //                Con una closure andiamo a creare annotazioni sulla mappa aggiungendo un cerchio blu per ogni posizione
@@ -36,14 +39,24 @@ struct MostraMappaFontEPos: View{
                 }
             }
             
-            Annotation<Text, MostraMappaFontEPos>("Tu", coordinate: CLLocationCoordinate2D(latitude: user.latitude, longitude: user.longitude), content: {MostraMappaFontEPos()})
-    
+            Annotation("Tu", coordinate: CLLocationCoordinate2D(latitude: user.latitude, longitude: user.longitude), content: {     ZStack{
+                Circle()
+                    .foregroundColor(.white)
+                    .font(.system(size: 100))
+                Circle()
+                    .foregroundColor(.red)
+                    .font(.system(size: 10))
+        
+            }})
+           
         }
     }
 }
 
 
-
+#Preview {
+    MostraMappaFontEPos()
+}
 
 //Queta linea di codice non da errore e credo sia anche corretta
 //Va aggiunta la segguente istanza della classe LocationManager: @ObservedObject var location = LocationManager()
