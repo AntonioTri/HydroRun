@@ -17,26 +17,37 @@ import SwiftUI
 // richiesta https ad un server, per non rendere l'app lenta nel fare calcoli, questa viene dichiarata come "asincrona"
 // con il protocollo async sottostante
 
-func RicercaNumeroFontanelle(user: User) async -> Int{
+func RicercaNumeroFontanelle() async -> Int{
+    
+    @State var user = User.shared
+    
+    print(user.height)
+    print(user.weight)
     
     var nroFontanelle = 3
     
     //Ricerca dei valori meteo
     let valoriMeteo = WeatherView()
-    
+    valoriMeteo.fetchWeatherData()
     //Estrazione dei valori meteo
-    let temperature = valoriMeteo.temperature
-    let humidity = valoriMeteo.humidity
-    let height = user.height / 100
-    
+    var temperature = valoriMeteo.temperature
+    var humidity = valoriMeteo.humidity
+
+    var height = user.height / 100
+    if height == 0 {
+        height = 1
+    }
+
     //Calcolo dell'indice IBM
     let IBM =  user.weight / (height * height)
     
     //Modificatore Fontanelle tramite il tempo
-    nroFontanelle = await WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature ?? 20, humidity: humidity ?? 50)
+    temperature = 18
+    humidity = 40
+    nroFontanelle = WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature ?? 20, humidity: humidity ?? 50)
     
     //Modificatore Fontanelle tramite l'indiceIBM
-    nroFontanelle = await IBMModifier(IBM: IBM, nroFontanelle: nroFontanelle)
+    nroFontanelle = IBMModifier(IBM: Double(IBM), nroFontanelle: nroFontanelle)
     
 //    Si possono aggiungere quanti altri modificatori si vogliono di qualunque complessità
     
@@ -46,7 +57,7 @@ func RicercaNumeroFontanelle(user: User) async -> Int{
 }
 
 // Modificatore del valore delle fontanelle in base al meteo, sono solo un sacco di if
-func WeatherModifier(nroFontanelle: Int, temperatura: Double, humidity: Double) async -> Int{
+func WeatherModifier(nroFontanelle: Int, temperatura: Double, humidity: Double) -> Int{
     
     var nro = nroFontanelle
     
@@ -67,7 +78,7 @@ func WeatherModifier(nroFontanelle: Int, temperatura: Double, humidity: Double) 
 }
 
 // Modificatore del valore delle fontanelle in base all'indice IBM, anche qui sono un casino di if
-func IBMModifier(IBM: Double, nroFontanelle: Int) async -> Int{
+func IBMModifier(IBM: Double, nroFontanelle: Int) -> Int{
  
     var nro = nroFontanelle
     
@@ -80,3 +91,6 @@ func IBMModifier(IBM: Double, nroFontanelle: Int) async -> Int{
     return nro
     
 }
+
+
+

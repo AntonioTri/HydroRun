@@ -21,6 +21,8 @@ struct HydroRunApp: App {
 struct ContentView: View {
     
     @State private var selection: Int = 0
+    @State var timerAndKm = false
+    @State var pauseTimer = false
     
     var body: some View {
        
@@ -28,9 +30,14 @@ struct ContentView: View {
             ZStack {
                 VStack {
                     MostraMappaFontEPos()
-                    BottoneStart()
+                    BottoneStart(timerAndKm: $timerAndKm, pauseTimer: $pauseTimer)
                         .padding(10)
                 }
+                
+                if timerAndKm {
+                    TimerAndKm(pauseTimer: $pauseTimer)
+                }
+
                 ButtonMaps()
                     .position(x: 350, y: 80)
             }
@@ -41,10 +48,10 @@ struct ContentView: View {
             }
             .tag(2)
             
-            Profile()
+            Historical()
             .tabItem {
-                Image(systemName: "person.fill")
-                Text("Profile")
+                Image(systemName: "list.bullet.rectangle.portrait.fill")
+                Text("Historical")
             }
             .tag(1)
         }

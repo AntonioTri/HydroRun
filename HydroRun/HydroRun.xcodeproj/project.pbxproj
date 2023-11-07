@@ -12,6 +12,11 @@
 		2E8CC9212AF004720006C709 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CC9202AF004720006C709 /* Assets.xcassets */; };
 		2E8CC9242AF004720006C709 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CC9232AF004720006C709 /* Preview Assets.xcassets */; };
 		2E8D6F272AF830FC005DE6C9 /* BottoneStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D6F262AF830FC005DE6C9 /* BottoneStart.swift */; };
+		2EA3FE342AF8FAD00017E669 /* HistoricalTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE332AF8FAD00017E669 /* HistoricalTemplate.swift */; };
+		2EA3FE362AF91F420017E669 /* test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE352AF91F420017E669 /* test2.swift */; };
+		2EA3FE382AF942360017E669 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE372AF942360017E669 /* Timer.swift */; };
+		2EA3FE3A2AF942E00017E669 /* ContaChilometri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE392AF942E00017E669 /* ContaChilometri.swift */; };
+		2EA3FE3C2AF943630017E669 /* TimerAndKm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE3B2AF943630017E669 /* TimerAndKm.swift */; };
 		2EC904F42AF6665D0021257F /* RicercaNroFontanelle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC904F32AF6665D0021257F /* RicercaNroFontanelle.swift */; };
 		2EC904F72AF685CA0021257F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC904F62AF685CA0021257F /* Test.swift */; };
 		2EDC83862AF2698B009BD09B /* Fontane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC83852AF2698B009BD09B /* Fontane.swift */; };
@@ -20,7 +25,7 @@
 		2EDC838D2AF3A7D8009BD09B /* ViewForUserDataUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC838C2AF3A7D8009BD09B /* ViewForUserDataUpdate.swift */; };
 		2EDC838F2AF3A7EB009BD09B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC838E2AF3A7EB009BD09B /* User.swift */; };
 		2EDC83912AF3B40E009BD09B /* CurrnetUserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC83902AF3B40E009BD09B /* CurrnetUserLocation.swift */; };
-		2EFC12742AF537CD005C3478 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC12732AF537CD005C3478 /* Profile.swift */; };
+		2EFC12742AF537CD005C3478 /* Historical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC12732AF537CD005C3478 /* Historical.swift */; };
 		2EFC12762AF54033005C3478 /* ProfileEditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC12752AF54033005C3478 /* ProfileEditButton.swift */; };
 		2EFC12782AF54465005C3478 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC12772AF54465005C3478 /* UsersData.swift */; };
 		2EFC127A2AF54A01005C3478 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC12792AF54A01005C3478 /* ProfileHeader.swift */; };
@@ -35,6 +40,11 @@
 		2E8CC9202AF004720006C709 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E8CC9232AF004720006C709 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E8D6F262AF830FC005DE6C9 /* BottoneStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottoneStart.swift; sourceTree = "<group>"; };
+		2EA3FE332AF8FAD00017E669 /* HistoricalTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalTemplate.swift; sourceTree = "<group>"; };
+		2EA3FE352AF91F420017E669 /* test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2.swift; sourceTree = "<group>"; };
+		2EA3FE372AF942360017E669 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		2EA3FE392AF942E00017E669 /* ContaChilometri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaChilometri.swift; sourceTree = "<group>"; };
+		2EA3FE3B2AF943630017E669 /* TimerAndKm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAndKm.swift; sourceTree = "<group>"; };
 		2EC904F32AF6665D0021257F /* RicercaNroFontanelle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RicercaNroFontanelle.swift; sourceTree = "<group>"; };
 		2EC904F62AF685CA0021257F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		2EDC83852AF2698B009BD09B /* Fontane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fontane.swift; sourceTree = "<group>"; };
@@ -43,7 +53,7 @@
 		2EDC838C2AF3A7D8009BD09B /* ViewForUserDataUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForUserDataUpdate.swift; sourceTree = "<group>"; };
 		2EDC838E2AF3A7EB009BD09B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2EDC83902AF3B40E009BD09B /* CurrnetUserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrnetUserLocation.swift; sourceTree = "<group>"; };
-		2EFC12732AF537CD005C3478 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		2EFC12732AF537CD005C3478 /* Historical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Historical.swift; sourceTree = "<group>"; };
 		2EFC12752AF54033005C3478 /* ProfileEditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditButton.swift; sourceTree = "<group>"; };
 		2EFC12772AF54465005C3478 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
 		2EFC12792AF54A01005C3478 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
@@ -106,6 +116,7 @@
 			children = (
 				2EC904F62AF685CA0021257F /* Test.swift */,
 				2EC904F32AF6665D0021257F /* RicercaNroFontanelle.swift */,
+				2EA3FE352AF91F420017E669 /* test2.swift */,
 			);
 			path = "Path Fiding Algorithm";
 			sourceTree = "<group>";
@@ -115,11 +126,12 @@
 			children = (
 				2EDC838E2AF3A7EB009BD09B /* User.swift */,
 				2EDC838C2AF3A7D8009BD09B /* ViewForUserDataUpdate.swift */,
-				2EFC12732AF537CD005C3478 /* Profile.swift */,
+				2EFC12732AF537CD005C3478 /* Historical.swift */,
 				2EFC12752AF54033005C3478 /* ProfileEditButton.swift */,
 				2EFC12772AF54465005C3478 /* UsersData.swift */,
 				2EFC12792AF54A01005C3478 /* ProfileHeader.swift */,
 				2EFC127D2AF57BAC005C3478 /* SaveAndDiscardButton.swift */,
+				2EA3FE332AF8FAD00017E669 /* HistoricalTemplate.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -146,6 +158,9 @@
 		2EFC12812AF57D85005C3478 /* StructAndUsable */ = {
 			isa = PBXGroup;
 			children = (
+				2EA3FE372AF942360017E669 /* Timer.swift */,
+				2EA3FE392AF942E00017E669 /* ContaChilometri.swift */,
+				2EA3FE3B2AF943630017E669 /* TimerAndKm.swift */,
 				2EDC83852AF2698B009BD09B /* Fontane.swift */,
 				2EDC838A2AF3A7C5009BD09B /* RunData.swift */,
 			);
@@ -223,22 +238,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E1CECBD2AF41137004195C6 /* Buttonmaps.swift in Sources */,
+				2EA3FE3A2AF942E00017E669 /* ContaChilometri.swift in Sources */,
 				2EFC12782AF54465005C3478 /* UsersData.swift in Sources */,
 				2EFC12762AF54033005C3478 /* ProfileEditButton.swift in Sources */,
 				2EFC127A2AF54A01005C3478 /* ProfileHeader.swift in Sources */,
 				2EC904F72AF685CA0021257F /* Test.swift in Sources */,
 				2EDC83882AF269A3009BD09B /* UserAndFontPosition.swift in Sources */,
 				2EC904F42AF6665D0021257F /* RicercaNroFontanelle.swift in Sources */,
+				2EA3FE382AF942360017E669 /* Timer.swift in Sources */,
 				2EDC83862AF2698B009BD09B /* Fontane.swift in Sources */,
+				2EA3FE362AF91F420017E669 /* test2.swift in Sources */,
 				2EDC838D2AF3A7D8009BD09B /* ViewForUserDataUpdate.swift in Sources */,
-				2EFC12742AF537CD005C3478 /* Profile.swift in Sources */,
+				2EFC12742AF537CD005C3478 /* Historical.swift in Sources */,
 				2EDC838F2AF3A7EB009BD09B /* User.swift in Sources */,
 				2EFC127C2AF571D2005C3478 /* MetereologicStuff.swift in Sources */,
 				2E8CC91F2AF004700006C709 /* ContentView.swift in Sources */,
 				2EFC127E2AF57BAC005C3478 /* SaveAndDiscardButton.swift in Sources */,
+				2EA3FE3C2AF943630017E669 /* TimerAndKm.swift in Sources */,
 				2E8D6F272AF830FC005DE6C9 /* BottoneStart.swift in Sources */,
 				2EDC83912AF3B40E009BD09B /* CurrnetUserLocation.swift in Sources */,
 				2EDC838B2AF3A7C5009BD09B /* RunData.swift in Sources */,
+				2EA3FE342AF8FAD00017E669 /* HistoricalTemplate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

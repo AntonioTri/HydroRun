@@ -32,12 +32,12 @@ class WeatherView {
     public var pressure: Int?
 
     //Fuzione di "Fetch", estrazione dati, dalla API
-    private func fetchWeatherData() {
+    public func fetchWeatherData() -> Bool {
         
         //Si inizializza una variabileall'indirizzo web della API, la chiave utilizzata è quella di Antonio Tridente ( APPID )
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=Naples, IT,uk&APPID=e8423e95d3298b67b93efa37eb45782c") else {
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=Naples, IT,uk&APPID=b3cefb7e0e2d2dda7d9cbd9326c5a1ce") else {
             print("URL non valido")
-            return
+            return false
         }
 
         //Si inizializza una task, un compito da far svolgere al programma in background, questa task è la richiesta HTTPS
@@ -65,10 +65,7 @@ class WeatherView {
         //Non lo so qua mi ha aiutato ChatGpt, credo serva a riprendere le altre operazioni dell'app se
         //queste sopra descritte non funzionino
         task.resume()
-    }
-    
-    init(){
-        self.fetchWeatherData()
+        return true
     }
 }
 
