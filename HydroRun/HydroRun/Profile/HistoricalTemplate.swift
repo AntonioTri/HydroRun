@@ -8,6 +8,7 @@
 
 //Serve un costruttore, si crea l'oggetto e poi viene mostrato, fatto un append sulla lista
 import SwiftUI
+import Foundation
 
 
 struct ShowHistorical: View{

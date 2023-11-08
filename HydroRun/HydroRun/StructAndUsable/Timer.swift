@@ -24,16 +24,10 @@ struct Tempo: View {
                 if !self.pauseTimer {
                     startTimer()
                 }
-                if saveData { SaveData() }
-                
             })
-    }
-    
-    func SaveData(){
-        if saveData{
-            savedTime = formattedTime(elapsedTime)
-        }
-       
+            .onChange(of: saveData){
+                    savedTime = formattedTime(elapsedTime)
+            }
     }
 
     func startTimer() {

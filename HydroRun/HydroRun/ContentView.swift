@@ -27,7 +27,7 @@ struct ContentView: View {
     @State var saveData = false
     @State var savedTime = ""
     @State var savedKilometers = 0.0
-    @State var nroFontanelle = 2
+    @State var nroFontanelle = 0
     
     var body: some View {
        
@@ -35,18 +35,19 @@ struct ContentView: View {
             ZStack {
                 VStack {
                     MostraMappaFontEPos()
-                    BottoneStart(timerAndKm: $timerAndKm, pauseTimer: $pauseTimer, saveDataflag: $saveData, savedTime: $savedTime, savedKilometers: $savedKilometers)
+                    BottoneStart(timerAndKm: $timerAndKm, pauseTimer: $pauseTimer, saveDataflag: $saveData, savedTime: savedTime, savedKilometers: savedKilometers)
                         .padding(10)
                 }
                 
                 if timerAndKm {
-                    TimerAndKm(pauseTimer: $pauseTimer, saveData: $saveData, savedTime: $savedTime, savedKilometers: $savedKilometers)
+                    TimerAndKm(pauseTimer: $pauseTimer, saveData: $saveData, savedTime: savedTime, savedKilometers: $savedKilometers)
                         .position(x: 197, y:50)
                 }
 
                 if timerAndKm{
                     ButtonMaps()
                         .position(x: 350, y: 158)
+
                 } else {
                     ButtonMaps()
                         .position(x: 350, y: 90)
