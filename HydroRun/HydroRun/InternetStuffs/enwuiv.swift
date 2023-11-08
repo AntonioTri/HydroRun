@@ -19,9 +19,7 @@ struct WeatherData: Codable {
 }
 
 //I gradi vengono restituiti dalla Request in formato Kelvin, questa funzione esegue la conversione
-func KelvinToCelsius(kelvin: Double) -> Double{
-    return kelvin - 273.15
-}
+
 
 //Qui si crea la view dei dati, nella struct vi è anche presente una funizone che estrae idati dalla JSON Request
 class WeatherView {

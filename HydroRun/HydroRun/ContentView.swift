@@ -21,8 +21,9 @@ struct HydroRunApp: App {
 struct ContentView: View {
     
     @State private var selection: Int = 0
-    @State var timerAndKm = false
+    @State var showThings = false
     @State var pauseTimer = true
+    @State var showPath  = false
     
     @State var saveData = false
     @State var savedTime = ""
@@ -34,17 +35,23 @@ struct ContentView: View {
         TabView(selection: $selection){
             ZStack {
                 VStack {
-                    MostraMappaFontEPos()
-                    BottoneStart(timerAndKm: $timerAndKm, pauseTimer: $pauseTimer, saveDataflag: $saveData, savedTime: savedTime, savedKilometers: savedKilometers)
+                    
+                    if !showThings{
+                        MostraMappaFontEPos()
+                    } else {
+                        StartPath()
+                    }
+                    
+                    BottoneStart(timerAndKm: $showThings, pauseTimer: $pauseTimer, saveDataflag: $saveData, savedTime: $savedTime, savedKilometers: $savedKilometers)
                         .padding(10)
                 }
                 
-                if timerAndKm {
-                    TimerAndKm(pauseTimer: $pauseTimer, saveData: $saveData, savedTime: savedTime, savedKilometers: $savedKilometers)
+                if showThings {
+                    TimerAndKm(pauseTimer: $pauseTimer, saveData: $saveData, savedTime: $savedTime, savedKilometers: $savedKilometers)
                         .position(x: 197, y:50)
                 }
 
-                if timerAndKm{
+                if showThings{
                     ButtonMaps()
                         .position(x: 350, y: 158)
 
@@ -71,7 +78,6 @@ struct ContentView: View {
 
     let locationManager = CLLocationManager()
     
-
 }
 
 
