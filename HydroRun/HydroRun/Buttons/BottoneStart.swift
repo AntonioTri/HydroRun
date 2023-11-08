@@ -26,8 +26,8 @@ struct BottoneStart: View {
     
     //Dati salvati
     @Binding var saveDataflag: Bool
-    @Binding var savedTime: String
-    @Binding var savedKilometers: Double
+    @State var savedTime: String
+    @State var savedKilometers: Double
 
     @State private var nroFontanelle = 0
     
@@ -57,6 +57,10 @@ struct BottoneStart: View {
                     
                     timerAndKm = true
                     pauseTimer = false
+                    
+                    Task {
+                        nroFontanelle = await RicercaNumeroFontanelle()
+                    }
                     
                 }, label: {
                     Circle()
@@ -135,8 +139,6 @@ struct BottoneStart: View {
                     
                         var historicals: [SavedDataKmTimer] = loadData(type: [SavedDataKmTimer].self, key: "Storico") ?? []
                             
-                    
-                    
                         historicals.append(newHistorical)
                         saveData(array: historicals, key: "Storico")
                     
