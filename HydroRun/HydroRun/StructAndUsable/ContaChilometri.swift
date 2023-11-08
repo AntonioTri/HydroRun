@@ -36,7 +36,7 @@ class OdometerViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 struct OdometerView: View {
     @ObservedObject var viewModel: OdometerViewModel
-
+    
     var body: some View {
         Rectangle()
             .frame(width: 300, height: 45)

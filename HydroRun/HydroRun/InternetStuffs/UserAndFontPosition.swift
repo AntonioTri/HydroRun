@@ -18,8 +18,6 @@ struct MostraMappaFontEPos: View{
         //Si inizializza una mappa
         Map(){
             
-            
-    
             //Si esegue un ForEach che parte da 0 ed arriva al size dell nostro array fontanelle
             ForEach(0..<8) { i in
 //                Con una closure andiamo a creare annotazioni sulla mappa aggiungendo un cerchio blu per ogni posizione

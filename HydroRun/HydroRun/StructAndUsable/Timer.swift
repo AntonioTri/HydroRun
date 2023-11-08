@@ -13,28 +13,33 @@ struct Tempo: View {
     @State private var timer: Timer?
     @Binding var pauseTimer: Bool
     
+    @Binding var saveData: Bool
+    @Binding var savedTime: String
+    
     var body: some View {
-        Rectangle()
-            .fill(Color.blue)
-            .frame(width: 300, height: 45)
-            .cornerRadius(10)
-            .overlay(
+        
         Text(formattedTime(elapsedTime))
-            .font(.system(size: 35))
+            .bold()
             .onAppear(perform: {
+                if !self.pauseTimer {
                     startTimer()
+                }
+                if saveData { SaveData() }
+                
             })
-            .onDisappear(perform: {
-                stopTimer()
-            })
-    )}
+    }
     
-    
-    
+    func SaveData(){
+        if saveData{
+            savedTime = formattedTime(elapsedTime)
+        }
+       
+    }
+
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             
-            if pauseTimer{
+            if !self.pauseTimer{
                 elapsedTime += 1
             }
         }
@@ -50,6 +55,8 @@ struct Tempo: View {
         let seconds = Int(time) % 60
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
+    
+    
 }
 
 
