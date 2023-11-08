@@ -19,6 +19,7 @@
 		2EA3FE3C2AF943630017E669 /* TimerAndKm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE3B2AF943630017E669 /* TimerAndKm.swift */; };
 		2EC5B3BC2AFB85D30075175B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5B3BB2AFB85D30075175B /* Functions.swift */; };
 		2EC5B3BE2AFB8B1C0075175B /* ShoppingMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5B3BD2AFB8B1C0075175B /* ShoppingMap.swift */; };
+		2EC5B3C02AFB93900075175B /* APIWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5B3BF2AFB93900075175B /* APIWeather.swift */; };
 		2EC904F42AF6665D0021257F /* RicercaNroFontanelle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC904F32AF6665D0021257F /* RicercaNroFontanelle.swift */; };
 		2EC904F72AF685CA0021257F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC904F62AF685CA0021257F /* Test.swift */; };
 		2EDC83862AF2698B009BD09B /* Fontane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC83852AF2698B009BD09B /* Fontane.swift */; };
@@ -50,6 +51,7 @@
 		2EA3FE3B2AF943630017E669 /* TimerAndKm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAndKm.swift; sourceTree = "<group>"; };
 		2EC5B3BB2AFB85D30075175B /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		2EC5B3BD2AFB8B1C0075175B /* ShoppingMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingMap.swift; path = ../../../../../Downloads/ShoppingMap.swift; sourceTree = "<group>"; };
+		2EC5B3BF2AFB93900075175B /* APIWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIWeather.swift; sourceTree = "<group>"; };
 		2EC904F32AF6665D0021257F /* RicercaNroFontanelle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RicercaNroFontanelle.swift; sourceTree = "<group>"; };
 		2EC904F62AF685CA0021257F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		2EDC83852AF2698B009BD09B /* Fontane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fontane.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				2E8CC91E2AF004700006C709 /* ContentView.swift */,
+				2EC5B3BF2AFB93900075175B /* APIWeather.swift */,
 				2EC5B3BB2AFB85D30075175B /* Functions.swift */,
 				2EFC12812AF57D85005C3478 /* StructAndUsable */,
 				2EFC12802AF57D13005C3478 /* InternetStuffs */,
@@ -263,6 +266,7 @@
 				2EFC12742AF537CD005C3478 /* Historical.swift in Sources */,
 				2EDC838F2AF3A7EB009BD09B /* User.swift in Sources */,
 				2EFC127C2AF571D2005C3478 /* MetereologicStuff.swift in Sources */,
+				2EC5B3C02AFB93900075175B /* APIWeather.swift in Sources */,
 				2E8CC91F2AF004700006C709 /* ContentView.swift in Sources */,
 				2EFC127E2AF57BAC005C3478 /* SaveAndDiscardButton.swift in Sources */,
 				2EA3FE3C2AF943630017E669 /* TimerAndKm.swift in Sources */,

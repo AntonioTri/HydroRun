@@ -34,26 +34,3 @@ class OdometerViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 }
 
-struct OdometerView: View {
-    @ObservedObject var viewModel: OdometerViewModel
-    
-    var body: some View {
-        Rectangle()
-            .frame(width: 300, height: 45)
-            .foregroundColor(.blue)
-            .cornerRadius(10)
-            .overlay(
-                VStack {
-                    Text("\(String(format: "%.2f", viewModel.totalDistanceTraveled)) km")
-                        .font(.largeTitle)
-                        .padding()
-                }
-            )
-    }
-}
-
-
-
-        #Preview {
-            OdometerView(viewModel: OdometerViewModel())
-        }
