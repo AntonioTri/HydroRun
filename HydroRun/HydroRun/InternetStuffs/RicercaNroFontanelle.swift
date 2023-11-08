@@ -17,17 +17,15 @@ import SwiftUI
 // richiesta https ad un server, per non rendere l'app lenta nel fare calcoli, questa viene dichiarata come "asincrona"
 // con il protocollo async sottostante
 
-func RicercaNumeroFontanelle() async -> Int{
+func RicercaNumeroFontanelle() -> Int{
     
     @State var user = User.shared
     
-    print(user.height)
-    print(user.weight)
-    
-    var nroFontanelle = 3
+    var nroFontanelle = 4
     
     //Ricerca dei valori meteo
     @StateObject var weatherViewodel = WeatherViewModel()
+    
     //Estrazione dei valori meteo
     let temperature = weatherViewodel.temperature
     let humidity = weatherViewodel.humidity
@@ -38,7 +36,7 @@ func RicercaNumeroFontanelle() async -> Int{
     }
 
     //Calcolo dell'indice IBM
-    var IBM =  user.weight / (height * height)
+    let IBM =  user.weight / (height * height)
     
     //Modificatore Fontanelle tramite il tempo
     nroFontanelle = WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature ?? 20, humidity: humidity ?? 50)
@@ -50,6 +48,7 @@ func RicercaNumeroFontanelle() async -> Int{
     
     //Ritorna il numero di fontanelle modificato
     
+    if nroFontanelle > 8 { nroFontanelle = 8 }
     return nroFontanelle
     
 }

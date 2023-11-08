@@ -13,7 +13,6 @@ struct BottoneStart: View {
     //Variabili di ambiente
     @State private var isRunning = false
     @State private var isPaused = false
-    @State private var elapsedTime: TimeInterval = 0
     @State private var startTimerOnPlay = false
     
     @Binding var timerAndKm: Bool
@@ -26,19 +25,11 @@ struct BottoneStart: View {
     
     //Dati salvati
     @Binding var saveDataflag: Bool
-    @State var savedTime: String
-    @State var savedKilometers: Double
+    @Binding var savedTime: String
+    @Binding var savedKilometers: Double
 
     @State private var nroFontanelle = 0
     
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    var formattedTime: String {
-        let hours = Int(elapsedTime) / 3600
-        let minutes = (Int(elapsedTime) % 3600) / 60
-        let seconds = Int(elapsedTime) % 60
-
-        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-    }
     
 
     var body: some View {
@@ -114,26 +105,22 @@ struct BottoneStart: View {
                 }
            }
         }
-        .onReceive(timer) { _ in
-            if isRunning && !isPaused {
-                elapsedTime += 1
-            }
-        }
+        
         .alert(isPresented: $showingStopConfirmation) {
             Alert(
                 title: Text("Stop Run"),
                 message: Text("Do you want to stop and save the current run?"),
                 primaryButton: .default(Text("No") ),
                 secondaryButton: .cancel(Text("Yes")){
-                    
+
                         isRunning = false
                         showPauseStopButtons = false
                         showStartButton = true
-                        elapsedTime = 0
                         timerAndKm = false
+
                         saveDataflag = true
                     
-                        Thread.sleep(forTimeInterval: 1.0)
+                    Thread.sleep(forTimeInterval: 0.1)
                     
                         let newHistorical = SavedDataKmTimer(kmTaken: savedKilometers, time: savedTime, nrFontanelle: nroFontanelle)
                     

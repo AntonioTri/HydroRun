@@ -15,7 +15,7 @@ struct TimerAndKm: View {
     
     //Variabili per il salvataggio dei dati
     @Binding var saveData: Bool
-    @State var savedTime: String
+    @Binding var savedTime: String
     @Binding var savedKilometers: Double
     
     var body: some View {
@@ -40,7 +40,7 @@ struct TimerAndKm: View {
                                 .bold()
                             Spacer()
                         }
-                        .onChange(of: saveData){
+                        .onChange(of: viewModel.totalDistanceTraveled){
                             
                             savedKilometers = viewModel.totalDistanceTraveled
                             
