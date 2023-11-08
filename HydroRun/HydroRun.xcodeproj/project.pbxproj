@@ -13,12 +13,11 @@
 		2E8CC9242AF004720006C709 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CC9232AF004720006C709 /* Preview Assets.xcassets */; };
 		2E8D6F272AF830FC005DE6C9 /* BottoneStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D6F262AF830FC005DE6C9 /* BottoneStart.swift */; };
 		2EA3FE342AF8FAD00017E669 /* HistoricalTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE332AF8FAD00017E669 /* HistoricalTemplate.swift */; };
-		2EA3FE362AF91F420017E669 /* test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE352AF91F420017E669 /* test2.swift */; };
+		2EA3FE362AF91F420017E669 /* Pathfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE352AF91F420017E669 /* Pathfinder.swift */; };
 		2EA3FE382AF942360017E669 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE372AF942360017E669 /* Timer.swift */; };
 		2EA3FE3A2AF942E00017E669 /* ContaChilometri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE392AF942E00017E669 /* ContaChilometri.swift */; };
 		2EA3FE3C2AF943630017E669 /* TimerAndKm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA3FE3B2AF943630017E669 /* TimerAndKm.swift */; };
 		2EC5B3BC2AFB85D30075175B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5B3BB2AFB85D30075175B /* Functions.swift */; };
-		2EC5B3BE2AFB8B1C0075175B /* PathFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5B3BD2AFB8B1C0075175B /* PathFinder.swift */; };
 		2EC5B3C02AFB93900075175B /* APIWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5B3BF2AFB93900075175B /* APIWeather.swift */; };
 		2EC5B3C22AFBAC830075175B /* DictionaryOfPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5B3C12AFBAC830075175B /* DictionaryOfPaths.swift */; };
 		2EC5B3C42AFBF4310075175B /* PathSelecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5B3C32AFBF4310075175B /* PathSelecter.swift */; };
@@ -43,12 +42,11 @@
 		2E8CC9232AF004720006C709 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E8D6F262AF830FC005DE6C9 /* BottoneStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottoneStart.swift; sourceTree = "<group>"; };
 		2EA3FE332AF8FAD00017E669 /* HistoricalTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalTemplate.swift; sourceTree = "<group>"; };
-		2EA3FE352AF91F420017E669 /* test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2.swift; sourceTree = "<group>"; };
+		2EA3FE352AF91F420017E669 /* Pathfinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathfinder.swift; sourceTree = "<group>"; };
 		2EA3FE372AF942360017E669 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		2EA3FE392AF942E00017E669 /* ContaChilometri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaChilometri.swift; sourceTree = "<group>"; };
 		2EA3FE3B2AF943630017E669 /* TimerAndKm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAndKm.swift; sourceTree = "<group>"; };
 		2EC5B3BB2AFB85D30075175B /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		2EC5B3BD2AFB8B1C0075175B /* PathFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathFinder.swift; path = ../../../../../Downloads/PathFinder.swift; sourceTree = "<group>"; };
 		2EC5B3BF2AFB93900075175B /* APIWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIWeather.swift; sourceTree = "<group>"; };
 		2EC5B3C12AFBAC830075175B /* DictionaryOfPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryOfPaths.swift; sourceTree = "<group>"; };
 		2EC5B3C32AFBF4310075175B /* PathSelecter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathSelecter.swift; sourceTree = "<group>"; };
@@ -118,8 +116,7 @@
 		2EC904F52AF666670021257F /* Path Fiding Algorithm */ = {
 			isa = PBXGroup;
 			children = (
-				2EA3FE352AF91F420017E669 /* test2.swift */,
-				2EC5B3BD2AFB8B1C0075175B /* PathFinder.swift */,
+				2EA3FE352AF91F420017E669 /* Pathfinder.swift */,
 				2EC5B3C12AFBAC830075175B /* DictionaryOfPaths.swift */,
 				2EC5B3C32AFBF4310075175B /* PathSelecter.swift */,
 			);
@@ -252,9 +249,8 @@
 				2EDC83882AF269A3009BD09B /* UserAndFontPosition.swift in Sources */,
 				2EC904F42AF6665D0021257F /* RicercaNroFontanelle.swift in Sources */,
 				2EA3FE382AF942360017E669 /* Timer.swift in Sources */,
-				2EC5B3BE2AFB8B1C0075175B /* PathFinder.swift in Sources */,
 				2EC5B3C22AFBAC830075175B /* DictionaryOfPaths.swift in Sources */,
-				2EA3FE362AF91F420017E669 /* test2.swift in Sources */,
+				2EA3FE362AF91F420017E669 /* Pathfinder.swift in Sources */,
 				2EC5B3BC2AFB85D30075175B /* Functions.swift in Sources */,
 				2EDC838D2AF3A7D8009BD09B /* ViewForUserDataUpdate.swift in Sources */,
 				2EFC12742AF537CD005C3478 /* Historical.swift in Sources */,
