@@ -9,19 +9,28 @@
 //Serve un costruttore, si crea l'oggetto e poi viene mostrato, fatto un append sulla lista
 import SwiftUI
 
-var historicals: [HistoricalTemplate] = [
-    
-    HistoricalTemplate(kmTaken: 100, time: "00:49:32'", medVelocity: 8, WaterStops: 3),
-    HistoricalTemplate(kmTaken: 100, time: "00:49:32'", medVelocity: 8, WaterStops: 3)
-    
-]
 
 struct ShowHistorical: View{
+    
+    
+    @State var historicals: [SavedDataKmTimer] = loadData(type: [SavedDataKmTimer].self, key: "Storico") ?? []{
+        
+        willSet {
+            saveData(array: newValue, key: "Storico")
+        }
+        
+    }
+
     var body: some View{
         
         List(historicals.indices, id: \.self){ index in
         
-            historicals[index]
+            HistoricalTemplate(kmTaken: historicals[index].kmTaken, time: historicals[index].time, WaterStops: historicals[index].nrFontanelle)
+            
+        }
+        .onAppear{
+            
+            historicals = loadData(type: [SavedDataKmTimer].self, key: "Storico") ?? []
             
         }
     }
@@ -29,10 +38,9 @@ struct ShowHistorical: View{
 
 struct HistoricalTemplate: View {
     
-    let kmTaken: Int
-    let time: String
-    let medVelocity: Int
-    let WaterStops: Int
+    var kmTaken: Double
+    var time: String
+    var WaterStops: Int
     
     var body: some View {
         
@@ -46,11 +54,6 @@ struct HistoricalTemplate: View {
                     Text("Time: ")
                     Spacer()
                     Text(time)
-                }
-                HStack{
-                    Text("Medium velocity: ")
-                    Spacer()
-                    Text("\(medVelocity) km/h")
                 }
                 HStack{
                     Text("WaterStops: ")
