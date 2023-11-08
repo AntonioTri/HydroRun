@@ -19,49 +19,60 @@ struct EditDataView: View {
         
             Form {
                 
-                Section(header: Text("Enter your data")) {
+                Section(header: Text("Modify your data")) {
                     
                     HStack {
                         Text("Nickname:")
-                        TextField("Enter your nickname", text: Binding(
-                            get: {String(user.nickname)},
-                            set: {modifiedUser.nickname = String($0) }
-                        
-                        ))
-                        .keyboardType(.default)
+                        TextField("Enter your nickname", text: $modifiedUser.nickname)
+                            .keyboardType(.default)
                     }
                     
                     HStack {
                         Text("Age:")
                         TextField("Enter your age", text: Binding(
-                            get: { String(user.age) },
-                            set: { modifiedUser.age = Int($0) ?? 0 }
+                            get: { String(modifiedUser.age) },
+                            set: { text in
+                                if let age = Int(text) {
+                                    modifiedUser.age = age
+                                }
+                            }
                         ))
                         .keyboardType(.numberPad)
                     }
+
                     
                     HStack {
-                        Text("Height (cm):")
-                        TextField("Enter your height (cm)", text: Binding(
-                            get: { String(user.height) },
-                            set: { modifiedUser.height = Double($0) ?? 0.0 }
+                        Text("Height:")
+                        TextField("Enter your height", text: Binding(
+                            get: { String(modifiedUser.height) },
+                            set: { text in
+                                if let height = Int(text) {
+                                    modifiedUser.height = height
+                                }
+                            }
                         ))
-                        .keyboardType(.decimalPad)
+                        .keyboardType(.numberPad)
                     }
+
                     
                     HStack {
-                        Text("Weight (kg):")
-                        TextField("Enter your weight (kg)", text: Binding(
-                            get: { String(user.weight) },
-                            set: { modifiedUser.weight = Double($0) ?? 0.0 }
+                        Text("Weight:")
+                        TextField("Enter your weight", text: Binding(
+                            get: { String(modifiedUser.weight) },
+                            set: { text in
+                                if let weight = Int(text) {
+                                    modifiedUser.weight = weight
+                                }
+                            }
                         ))
-                        .keyboardType(.decimalPad)
+                        .keyboardType(.numberPad)
                     }
+
                     
                     HStack {
                         Text("Fitness (1-10):")
                         TextField("Enter your fitness level", text: Binding(
-                            get: { String(user.fitnessLevel) },
+                            get: { String(modifiedUser.fitnessLevel) },
                             set: { modifiedUser.fitnessLevel = min(max(1, Int($0) ?? 1), 10) }
                         ))
                         .keyboardType(.numberPad)

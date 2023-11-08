@@ -9,16 +9,27 @@ import SwiftUI
 
 struct BottoneStart: View {
     
+    
     //Variabili di ambiente
     @State private var isRunning = false
     @State private var isPaused = false
     @State private var elapsedTime: TimeInterval = 0
     @State private var startTimerOnPlay = false
     
+    @Binding var timerAndKm: Bool
+    @Binding var pauseTimer: Bool
+        
     //Variabili di start e stop dei bottoni
     @State private var showStartButton = true
     @State private var showingStopConfirmation = false
     @State private var showPauseStopButtons = false
+    
+    //Dati salvati
+    @Binding var saveDataflag: Bool
+    @Binding var savedTime: String
+    @Binding var savedKilometers: Double
+
+    @State private var nroFontanelle = 0
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var formattedTime: String {
@@ -28,34 +39,24 @@ struct BottoneStart: View {
 
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
-
+    
 
     var body: some View {
+        
         ZStack {
-            
-            if isRunning {
-                Rectangle()
-                    .fill(Color.white)
-                    .frame(width: 300, height: 45)
-                    .cornerRadius(10)
-                    .overlay(
-                        Text(formattedTime)
-                            .font(.largeTitle)
-                            .foregroundColor(.black)
-                    )
-                    .font(.largeTitle)
-                    .padding()
-                    .transition(.opacity)
-                    .offset(y: -330)
-            }
-            
             
             if showStartButton {
                 
-                Button(action: {
+                Button (action: {
+                    
                     showStartButton = false
                     showPauseStopButtons = true
+                    
                     isRunning = true
+                    isPaused = false
+                    
+                    timerAndKm = true
+                    pauseTimer = false
                     
                 }, label: {
                     Circle()
@@ -92,6 +93,7 @@ struct BottoneStart: View {
                         isPaused.toggle()
                         startTimerOnPlay = true
                         isRunning = true
+                        pauseTimer.toggle()
                         
                     }) {
                         Circle()
@@ -115,20 +117,42 @@ struct BottoneStart: View {
         }
         .alert(isPresented: $showingStopConfirmation) {
             Alert(
-                title: Text("Stop Timer"),
-                message: Text("Do you want to stop the timer?"),
-                primaryButton: .default(Text("Yes")) {
-                    isRunning = false
-                    showPauseStopButtons = false
-                    showStartButton = true
-                    elapsedTime = 0
-                },
-                secondaryButton: .cancel(Text("No"))
+                title: Text("Stop Run"),
+                message: Text("Do you want to stop and save the current run?"),
+                primaryButton: .default(Text("No") ),
+                secondaryButton: .cancel(Text("Yes")){
+                    
+                        isRunning = false
+                        showPauseStopButtons = false
+                        showStartButton = true
+                        elapsedTime = 0
+                        timerAndKm = false
+                        saveDataflag = true
+                    
+                        Thread.sleep(forTimeInterval: 1.0)
+                    
+                        let newHistorical = SavedDataKmTimer(kmTaken: savedKilometers, time: savedTime, nrFontanelle: nroFontanelle)
+                    
+                        var historicals: [SavedDataKmTimer] = loadData(type: [SavedDataKmTimer].self, key: "Storico") ?? []
+                            
+                    
+                    
+                        historicals.append(newHistorical)
+                        saveData(array: historicals, key: "Storico")
+                    
+                        saveDataflag = false
+                    
+                }
             )
         }
     }
 }
 
-#Preview{
-    BottoneStart()
+
+struct SavedDataKmTimer: Codable {
+    
+    let kmTaken: Double
+    let time: String
+    let nrFontanelle: Int
+    
 }

@@ -21,6 +21,13 @@ struct HydroRunApp: App {
 struct ContentView: View {
     
     @State private var selection: Int = 0
+    @State var timerAndKm = false
+    @State var pauseTimer = true
+    
+    @State var saveData = false
+    @State var savedTime = ""
+    @State var savedKilometers = 0.0
+    @State var nroFontanelle = 2
     
     var body: some View {
        
@@ -28,23 +35,33 @@ struct ContentView: View {
             ZStack {
                 VStack {
                     MostraMappaFontEPos()
-                    BottoneStart()
+                    BottoneStart(timerAndKm: $timerAndKm, pauseTimer: $pauseTimer, saveDataflag: $saveData, savedTime: $savedTime, savedKilometers: $savedKilometers)
                         .padding(10)
                 }
-                ButtonMaps()
-                    .position(x: 350, y: 80)
+                
+                if timerAndKm {
+                    TimerAndKm(pauseTimer: $pauseTimer, saveData: $saveData, savedTime: $savedTime, savedKilometers: $savedKilometers)
+                        .position(x: 197, y:50)
+                }
+
+                if timerAndKm{
+                    ButtonMaps()
+                        .position(x: 350, y: 158)
+                } else {
+                    ButtonMaps()
+                        .position(x: 350, y: 90)
+                }
             }
-            
             .tabItem {
                 Image(systemName: "figure.run")
                 Text("Run")
             }
             .tag(2)
             
-            Profile()
+            Historical()
             .tabItem {
-                Image(systemName: "person.fill")
-                Text("Profile")
+                Image(systemName: "list.bullet.rectangle.portrait.fill")
+                Text("Historical")
             }
             .tag(1)
         }
@@ -53,7 +70,6 @@ struct ContentView: View {
 
     let locationManager = CLLocationManager()
     
-    
 
 }
 
@@ -61,6 +77,18 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
