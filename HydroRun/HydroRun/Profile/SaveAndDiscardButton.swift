@@ -17,6 +17,7 @@ struct SaveAndDismiss: View {
         HStack {
             Button("Discard") {
                 dismiss()
+                modifiedUser = user
             }
             .padding(20)
             

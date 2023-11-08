@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct Profile: View {
+struct Historical: View {
     @StateObject private var userViewModel = UserViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
-                UserDataDisplay(userViewModel: userViewModel)
+                ShowHistorical()
             }
             .navigationBarItems(trailing: ProfileHeader(userViewModel: userViewModel))
+
         }
     }
 }
@@ -36,5 +37,5 @@ struct ModalView: View {
 
 
 #Preview{
-    Profile()
+    Historical()
 }
