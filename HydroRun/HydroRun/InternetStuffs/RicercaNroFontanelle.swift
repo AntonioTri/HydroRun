@@ -17,39 +17,34 @@ import SwiftUI
 // richiesta https ad un server, per non rendere l'app lenta nel fare calcoli, questa viene dichiarata come "asincrona"
 // con il protocollo async sottostante
 
-func RicercaNumeroFontanelle() async -> Int{
+func RicercaNumeroFontanelle() -> Int{
     
     @State var user = User.shared
-    
-    print(user.height)
-    print(user.weight)
     
     var nroFontanelle = 3
     
     //Ricerca dei valori meteo
     @StateObject var weatherViewodel = WeatherViewModel()
+    Thread.sleep(forTimeInterval: 0.5)
+    
     //Estrazione dei valori meteo
-    var temperature = weatherViewodel.temperature
-    var humidity = weatherViewodel.humidity
-
-    var height = user.height / 100
+    if let temperature = weatherViewodel.temperature,
+        let humidity = weatherViewodel.humidity{
+        //Modificatore Fontanelle tramite il tempo
+        nroFontanelle = WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature , humidity: humidity )
+    }
+    
+    var height: Double = user.height / 100
     if height == 0 {
+        print("test")
         height = 1
     }
-
     //Calcolo dell'indice IBM
-    let IBM =  user.weight / (height * height)
-    
-    //Modificatore Fontanelle tramite il tempo
-    nroFontanelle = WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature ?? 20, humidity: humidity ?? 50)
-    
+    let IBM: Double =  user.weight / (height * height)
     //Modificatore Fontanelle tramite l'indiceIBM
     nroFontanelle = IBMModifier(IBM: Double(IBM), nroFontanelle: nroFontanelle)
-    
-//    Si possono aggiungere quanti altri modificatori si vogliono di qualunque complessità
-    
     //Ritorna il numero di fontanelle modificato
-    if temperature ?? 1 < 18 { nroFontanelle = 99 }
+    if nroFontanelle > 8 { nroFontanelle = 8 }
     return nroFontanelle
     
 }
@@ -82,9 +77,12 @@ func IBMModifier(IBM: Double, nroFontanelle: Int) -> Int{
     
     if IBM <= 18 { nro += 1 }
     if IBM > 18 && IBM <= 24 { nro -= 1 }
-    if IBM > 24 { nro += 1 }
-    if IBM > 29 { nro += 1 }
-    if IBM > 40 { nro += 1 }
+    else {
+        if IBM > 24 { nro += 1 }
+        if IBM > 29 { nro += 1 }
+        if IBM > 40 { nro += 1 }
+    }
+    
     
     return nro
     

@@ -29,7 +29,7 @@ class OdometerViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             let distanceInMetres = location.distance(from: lastLocation)
             totalDistanceTraveled += distanceInMetres / 1000 // Convert to kilometers
         }
-
+        
         lastLocation = location
     }
 }

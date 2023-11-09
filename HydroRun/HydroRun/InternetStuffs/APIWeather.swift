@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 
+func KelvinToCelsius(kelvin: Double) -> Double{
+    return kelvin - 273.15
+}
+
 class WeatherViewModel: ObservableObject {
     
     @Published var temperature: Double?

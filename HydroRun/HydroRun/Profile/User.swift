@@ -11,8 +11,8 @@ struct User {
     
     public var nickname = ""
     public var age = 1
-    public var height = 170
-    public var weight = 75
+    public var height = 100.0
+    public var weight = 75.0
     public var fitnessLevel = 1
 
     
