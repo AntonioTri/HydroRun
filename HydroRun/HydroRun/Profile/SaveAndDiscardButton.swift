@@ -23,7 +23,7 @@ struct SaveAndDismiss: View {
             
             Spacer()
             
-            Button("Save") {
+            Button("Done") {
                 user = modifiedUser
                 modifiedUser.save()
                 user.save()
