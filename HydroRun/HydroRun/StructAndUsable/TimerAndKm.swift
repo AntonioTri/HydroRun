@@ -40,7 +40,12 @@ struct TimerAndKm: View {
                                 .bold()
                             Spacer()
                         }
-                        
+                        .onChange(of: viewModel.totalDistanceTraveled){
+                            
+                            savedKilometers = viewModel.totalDistanceTraveled
+                            
+                        }
+
                         Rectangle()
                             .frame(width: 340, height: 1)
                             .foregroundColor(.gray)
@@ -60,13 +65,6 @@ struct TimerAndKm: View {
                 )
 
         }
-        .onAppear(
-            perform: { 
-                if saveData {
-                    savedKilometers = viewModel.totalDistanceTraveled
-                }
-            }
-        )
     }
 }
 

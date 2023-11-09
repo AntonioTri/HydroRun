@@ -23,17 +23,10 @@ struct Tempo: View {
             .onAppear(perform: {
                 if !self.pauseTimer {
                     startTimer()
+                    savedTime = formattedTime(elapsedTime)
                 }
-                if saveData { SaveData() }
-                
             })
-    }
-    
-    func SaveData(){
-        if saveData{
-            savedTime = formattedTime(elapsedTime)
-        }
-       
+        
     }
 
     func startTimer() {
@@ -41,6 +34,7 @@ struct Tempo: View {
             
             if !self.pauseTimer{
                 elapsedTime += 1
+                savedTime = formattedTime(elapsedTime)
             }
         }
     }

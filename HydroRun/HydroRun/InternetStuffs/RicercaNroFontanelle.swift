@@ -17,50 +17,49 @@ import SwiftUI
 // richiesta https ad un server, per non rendere l'app lenta nel fare calcoli, questa viene dichiarata come "asincrona"
 // con il protocollo async sottostante
 
-func RicercaNumeroFontanelle() async -> Int{
-    
-    @State var user = User.shared
-    
-    print(user.height)
-    print(user.weight)
-    
+func RicercaNumeroFontanelle() -> Int{
+
+    @State var user = User()
+
     var nroFontanelle = 3
-    
+
     //Ricerca dei valori meteo
     @StateObject var weatherViewodel = WeatherViewModel()
-    //Estrazione dei valori meteo
-    var temperature = weatherViewodel.temperature
-    var humidity = weatherViewodel.humidity
+    Thread.sleep(forTimeInterval: 0.5)
 
-    var height = user.height / 100
+    //Estrazione dei valori meteo
+    if let temperature = weatherViewodel.temperature,
+       let humidity = weatherViewodel.humidity{
+        //Modificatore Fontanelle tramite il tempo
+        nroFontanelle = WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature , humidity: humidity )
+        print("Temperature: \(temperature)")
+        print("Humidity: \(humidity)")
+    }
+    
+
+    var height: Double = Double(user.height) / 100
     if height == 0 {
+        print("test")
         height = 1
     }
-
+    
     //Calcolo dell'indice IBM
-    let IBM =  user.weight / (height * height)
-    
-    //Modificatore Fontanelle tramite il tempo
-    nroFontanelle = WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature ?? 20, humidity: humidity ?? 50)
-    
+    let IBM: Double = Double(user.weight) / (height * height)
     //Modificatore Fontanelle tramite l'indiceIBM
     nroFontanelle = IBMModifier(IBM: Double(IBM), nroFontanelle: nroFontanelle)
-    
-//    Si possono aggiungere quanti altri modificatori si vogliono di qualunque complessità
-    
     //Ritorna il numero di fontanelle modificato
-    if temperature ?? 1 < 18 { nroFontanelle = 99 }
+    if nroFontanelle > 8 { nroFontanelle = 8 }
     return nroFontanelle
-    
+
 }
 
 // Modificatore del valore delle fontanelle in base al meteo, sono solo un sacco di if
 func WeatherModifier(nroFontanelle: Int, temperatura: Double, humidity: Double) -> Int{
     
     var nro = nroFontanelle
-    
+
     if temperatura < 20 && humidity <= 50 { return nro }
-    
+
     if temperatura >= 20 { nro += 1 }
     if temperatura >= 25 { nro += 1 }
     if temperatura >= 30 { nro += 1 }
@@ -82,9 +81,12 @@ func IBMModifier(IBM: Double, nroFontanelle: Int) -> Int{
     
     if IBM <= 18 { nro += 1 }
     if IBM > 18 && IBM <= 24 { nro -= 1 }
-    if IBM > 24 { nro += 1 }
-    if IBM > 29 { nro += 1 }
-    if IBM > 40 { nro += 1 }
+    else {
+        if IBM > 24 { nro += 1 }
+        if IBM > 29 { nro += 1 }
+        if IBM > 40 { nro += 1 }
+    }
+    
     
     return nro
     

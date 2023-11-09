@@ -19,7 +19,7 @@ struct MostraMappaFontEPos: View{
         Map(){
             
             //Si esegue un ForEach che parte da 0 ed arriva al size dell nostro array fontanelle
-            ForEach(0..<8) { i in
+            ForEach(0..<11) { i in
 //                Con una closure andiamo a creare annotazioni sulla mappa aggiungendo un cerchio blu per ogni posizione
 //                etratta dall'array di posizione i, scriviamo inolter "fontanella" su ogni anotazione
                 Annotation(fontane[i].nome, coordinate: fontane[i].coordinate){
@@ -42,7 +42,7 @@ struct MostraMappaFontEPos: View{
                     .foregroundColor(.white)
                     .font(.system(size: 100))
                 Circle()
-                    .foregroundColor(.red)
+                    .foregroundColor(.orange)
                     .font(.system(size: 10))
         
             }})

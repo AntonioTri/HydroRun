@@ -11,8 +11,8 @@ import SwiftUI
 
 struct EditButton: View {
     
-    @State var modifiedUser: User
     @ObservedObject var userViewModel: UserViewModel
+    @ObservedObject var modifiedUser: UserViewModel
     @State private var showingSheet = false
 
     var body: some View {
@@ -21,7 +21,20 @@ struct EditButton: View {
                 .font(.system(size: 20))
         }
         .sheet(isPresented: $showingSheet) {
-            ModalView(modifiedUser: $modifiedUser, userViewModel: userViewModel)
+            ModalView(modifiedUser: modifiedUser, userViewModel: userViewModel)
         }
+    }
+}
+
+struct ModalView: View {
+    
+    @ObservedObject var modifiedUser: UserViewModel
+    @ObservedObject var userViewModel: UserViewModel
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+    
+        EditDataView(user: $userViewModel.user, modifiedUser: $modifiedUser.user)
+        
     }
 }

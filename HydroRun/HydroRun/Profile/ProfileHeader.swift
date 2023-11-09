@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileHeader: View {
     
     @ObservedObject var userViewModel: UserViewModel
+    @ObservedObject var modifiedUser: UserViewModel
     @State var user = User.shared
 
     var body: some View {
@@ -29,7 +30,7 @@ struct ProfileHeader: View {
             
             HStack{
                 Spacer()
-                EditButton(modifiedUser: user, userViewModel: userViewModel)
+                EditButton(userViewModel: userViewModel, modifiedUser: modifiedUser)
                     .padding(10)
             }
         }
@@ -45,5 +46,5 @@ struct Title: View {
 
 
 #Preview {
-    ProfileHeader(userViewModel: UserViewModel())
+    ProfileHeader(userViewModel: UserViewModel(), modifiedUser: UserViewModel())
 }

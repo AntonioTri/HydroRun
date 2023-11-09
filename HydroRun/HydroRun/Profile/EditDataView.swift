@@ -67,16 +67,6 @@ struct EditDataView: View {
                         ))
                         .keyboardType(.numberPad)
                     }
-
-                    
-                    HStack {
-                        Text("Fitness (1-10):")
-                        TextField("Enter your fitness level", text: Binding(
-                            get: { String(modifiedUser.fitnessLevel) },
-                            set: { modifiedUser.fitnessLevel = min(max(1, Int($0) ?? 1), 10) }
-                        ))
-                        .keyboardType(.numberPad)
-                    }
                 }
             }
         }
