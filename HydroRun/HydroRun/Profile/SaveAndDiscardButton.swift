@@ -24,7 +24,12 @@ struct SaveAndDismiss: View {
             Spacer()
             
             Button("Done") {
-                user = modifiedUser
+                
+                user.height = modifiedUser.height
+                user.age = modifiedUser.age
+                user.weight = user.weight
+                user.nickname = user.nickname
+                
                 modifiedUser.save()
                 user.save()
                 dismiss()

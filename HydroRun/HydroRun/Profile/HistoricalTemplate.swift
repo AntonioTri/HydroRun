@@ -19,7 +19,6 @@ struct ShowHistorical: View{
         willSet {
             saveData(array: newValue, key: "Storico")
         }
-        
     }
 
     var body: some View{
@@ -45,7 +44,7 @@ struct HistoricalTemplate: View {
     
     var body: some View {
         
-        Section(header: Text("01/10/2023").position(x:159) .bold()){
+        Section(header: Text("10/11/2023").position(x:159) .bold()){
                 HStack{
                     Text("Km taken: ")
                     Spacer()
