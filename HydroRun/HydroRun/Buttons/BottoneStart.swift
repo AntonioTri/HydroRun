@@ -50,7 +50,7 @@ struct BottoneStart: View {
                     pauseTimer = false
                     
                     Task {
-                        nroFontanelle = await RicercaNumeroFontanelle()
+                        nroFontanelle = RicercaNumeroFontanelle()
                     }
                     
                 }, label: {

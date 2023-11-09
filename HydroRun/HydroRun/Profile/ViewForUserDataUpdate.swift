@@ -47,7 +47,7 @@ struct EditDataView: View {
                             get: { String(modifiedUser.height) },
                             set: { text in
                                 if let height = Int(text) {
-                                    modifiedUser.height = height
+                                    modifiedUser.height = Double(height)
                                 }
                             }
                         ))
@@ -61,7 +61,7 @@ struct EditDataView: View {
                             get: { String(modifiedUser.weight) },
                             set: { text in
                                 if let weight = Int(text) {
-                                    modifiedUser.weight = weight
+                                    modifiedUser.weight = Double(weight)
                                 }
                             }
                         ))

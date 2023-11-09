@@ -17,7 +17,6 @@ struct PathFinder: View {
     @State private var routes: [MKRoute] = []
     @State private var selectedResult: MKMapItem?
     
-    //Questa deve essere una variabile Binding
     @Binding var pathName: String
     
     var body: some View {

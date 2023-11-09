@@ -24,10 +24,9 @@ struct StartPath: View{
 
 func PathSelecter() -> String{
     
-    var nearestLocation = NearestLocation()
-    
     @State var nroFontanelle = RicercaNumeroFontanelle()
-    Thread.sleep(forTimeInterval: 1)
+    Thread.sleep(forTimeInterval: 0.5)
+    let nearestLocation = NearestLocation()
     
     var key = ""
     
@@ -36,9 +35,9 @@ func PathSelecter() -> String{
     case 1:
         key = key + "PP"
     case 2:
-        key = key + "PG"
-    case 3:
         key = key + "PM"
+    case 3:
+        key = key + "PG"
     default:
         key = key + "PP"
 
@@ -64,6 +63,9 @@ func PathSelecter() -> String{
         
     }
     
+    print(nearestLocation.result)
+    print("nroFontanelle: \(nroFontanelle)")
+    print(key)
     return key
 }
 
@@ -77,32 +79,61 @@ class NearestLocation {
     public var result = 0
 
     private func nearestPointOfInterest() -> Int {
-        let currentLocation = CLLocation(latitude: locationManager.latitude, longitude: locationManager.longitude)
 
-        let distances: [CLLocationDistance] = [
-            currentLocation.distance(from: portaPiccola),
-            currentLocation.distance(from: portaGrande),
-            currentLocation.distance(from: portaMiano)
+        let distances: [Double] = [
+            DistanceFrom(x1: locationManager.latitude, y1: locationManager.longitude, x2: portaMiano.coordinate.latitude, y2: portaMiano.coordinate.longitude),
+            DistanceFrom(x1: locationManager.latitude , y1: locationManager.longitude, x2: portaGrande.coordinate.latitude, y2: portaGrande.coordinate.longitude),
+            DistanceFrom(x1: locationManager.latitude, y1: locationManager.longitude, x2: portaPiccola.coordinate.latitude, y2: portaPiccola.coordinate.longitude),
         ]
-
-        if let minDistance = distances.min(),
-           let index = distances.firstIndex(of: minDistance) {
-            switch index {
+        
+        let index = GetMinIndex(a: distances)
+        
+        switch (index) {
+            
             case 0:
+            print("Miano")
                 return 1
             case 1:
+            print("Piccola")
                 return 2
             case 2:
+            print("Grande")
                 return 3
             default:
                 return 1
             }
-        }
-
-        return 1
+        
+        
     }
     
     init(){
         result = nearestPointOfInterest()
     }
 }
+
+
+func DistanceFrom(x1: Double, y1: Double, x2: Double, y2: Double) -> Double{
+    
+    let distance = sqrt( pow(( x2 - x1 ), 2) + pow(( y2 - y1 ), 2))
+    
+    return distance
+    
+}
+
+func GetMinIndex(a: [Double]) -> Int {
+    
+    var minIndex: Int = 0
+    var value: Double = a[0]
+    
+    for i in 1...a.count - 1 {
+        
+        if a[i] < value {
+            value = a[i]
+            minIndex = i
+        }
+        
+    }
+    
+    return minIndex
+}
+
