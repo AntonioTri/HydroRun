@@ -33,9 +33,9 @@ func PathSelecter() -> String{
     switch nearestLocation.result {
         
     case 1:
-        key = key + "PP"
-    case 2:
         key = key + "PM"
+    case 2:
+        key = key + "PP"
     case 3:
         key = key + "PG"
     default:
