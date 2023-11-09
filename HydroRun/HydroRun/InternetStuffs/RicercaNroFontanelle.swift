@@ -18,44 +18,48 @@ import SwiftUI
 // con il protocollo async sottostante
 
 func RicercaNumeroFontanelle() -> Int{
-    
-    @State var user = User.shared
-    
+
+    @State var user = User()
+
     var nroFontanelle = 3
-    
+
     //Ricerca dei valori meteo
     @StateObject var weatherViewodel = WeatherViewModel()
     Thread.sleep(forTimeInterval: 0.5)
-    
+
     //Estrazione dei valori meteo
     if let temperature = weatherViewodel.temperature,
-        let humidity = weatherViewodel.humidity{
+       let humidity = weatherViewodel.humidity{
         //Modificatore Fontanelle tramite il tempo
         nroFontanelle = WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature , humidity: humidity )
+        print("Temperature: \(temperature)")
+        print("Humidity: \(humidity)")
     }
     
-    var height: Double = user.height / 100
+
+    var height: Double = Double(user.height) / 100
     if height == 0 {
         print("test")
         height = 1
     }
+    
     //Calcolo dell'indice IBM
-    let IBM: Double =  user.weight / (height * height)
+    let IBM: Double = Double(user.weight) / (height * height)
     //Modificatore Fontanelle tramite l'indiceIBM
     nroFontanelle = IBMModifier(IBM: Double(IBM), nroFontanelle: nroFontanelle)
     //Ritorna il numero di fontanelle modificato
     if nroFontanelle > 8 { nroFontanelle = 8 }
     return nroFontanelle
-    
+
 }
 
 // Modificatore del valore delle fontanelle in base al meteo, sono solo un sacco di if
 func WeatherModifier(nroFontanelle: Int, temperatura: Double, humidity: Double) -> Int{
     
     var nro = nroFontanelle
-    
+
     if temperatura < 20 && humidity <= 50 { return nro }
-    
+
     if temperatura >= 20 { nro += 1 }
     if temperatura >= 25 { nro += 1 }
     if temperatura >= 30 { nro += 1 }

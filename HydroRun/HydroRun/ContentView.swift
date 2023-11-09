@@ -51,14 +51,6 @@ struct ContentView: View {
                         .position(x: 197, y:50)
                 }
 
-                if showThings{
-                    ButtonMaps()
-                        .position(x: 350, y: 158)
-
-                } else {
-                    ButtonMaps()
-                        .position(x: 350, y: 90)
-                }
             }
             .tabItem {
                 Image(systemName: "figure.run")
@@ -84,18 +76,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

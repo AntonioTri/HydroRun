@@ -19,7 +19,6 @@ struct ShowHistorical: View{
         willSet {
             saveData(array: newValue, key: "Storico")
         }
-        
     }
 
     var body: some View{

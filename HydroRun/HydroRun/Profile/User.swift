@@ -11,18 +11,18 @@ struct User {
     
     public var nickname = ""
     public var age = 1
-    public var height = 100.0
-    public var weight = 75.0
-    public var fitnessLevel = 1
+    public var height = 100
+    public var weight = 75
 
-    
+
     init(){
         
-        self.nickname = ""
-        self.age = 1
-        self.height = 170
-        self.weight = 75
-        self.fitnessLevel = 1
+        let defaults = UserDefaults.standard
+        nickname = defaults.string(forKey: "nickname") ?? ""
+        age = defaults.integer(forKey: "age")
+        height = defaults.integer(forKey: "height")
+        weight = defaults.integer(forKey: "weight")
+        
         
     }
     
@@ -32,7 +32,6 @@ struct User {
         self.age = 1
         self.height = 170
         self.weight = 75
-        self.fitnessLevel = 1
     }
 
     // Metodo per salvare i dati dell'utente con UserDefaults
@@ -42,7 +41,6 @@ struct User {
         defaults.set(age, forKey: "age")
         defaults.set(height, forKey: "height")
         defaults.set(weight, forKey: "weight")
-        defaults.set(fitnessLevel, forKey: "fitnessLevel")
         
     }
 
