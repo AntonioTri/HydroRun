@@ -21,33 +21,29 @@ func RicercaNumeroFontanelle() -> Int{
     
     @State var user = User.shared
     
-    var nroFontanelle = 4
+    var nroFontanelle = 3
     
     //Ricerca dei valori meteo
     @StateObject var weatherViewodel = WeatherViewModel()
+    Thread.sleep(forTimeInterval: 0.5)
     
     //Estrazione dei valori meteo
-    let temperature = weatherViewodel.temperature
-    let humidity = weatherViewodel.humidity
-
-    var height = user.height / 100
+    if let temperature = weatherViewodel.temperature,
+        let humidity = weatherViewodel.humidity{
+        //Modificatore Fontanelle tramite il tempo
+        nroFontanelle = WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature , humidity: humidity )
+    }
+    
+    var height: Double = user.height / 100
     if height == 0 {
+        print("test")
         height = 1
     }
-
     //Calcolo dell'indice IBM
-    let IBM =  user.weight / (height * height)
-    
-    //Modificatore Fontanelle tramite il tempo
-    nroFontanelle = WeatherModifier(nroFontanelle: nroFontanelle, temperatura: temperature ?? 20, humidity: humidity ?? 50)
-    
+    let IBM: Double =  user.weight / (height * height)
     //Modificatore Fontanelle tramite l'indiceIBM
     nroFontanelle = IBMModifier(IBM: Double(IBM), nroFontanelle: nroFontanelle)
-    
-//    Si possono aggiungere quanti altri modificatori si vogliono di qualunque complessità
-    
     //Ritorna il numero di fontanelle modificato
-    
     if nroFontanelle > 8 { nroFontanelle = 8 }
     return nroFontanelle
     
