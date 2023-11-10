@@ -47,7 +47,7 @@ struct EditDataView: View {
                             get: { String(modifiedUser.height) },
                             set: { text in
                                 if let height = Int(text) {
-                                    modifiedUser.height = Double(height)
+                                    modifiedUser.height = height
                                 }
                             }
                         ))
@@ -61,19 +61,9 @@ struct EditDataView: View {
                             get: { String(modifiedUser.weight) },
                             set: { text in
                                 if let weight = Int(text) {
-                                    modifiedUser.weight = Double(weight)
+                                    modifiedUser.weight = weight
                                 }
                             }
-                        ))
-                        .keyboardType(.numberPad)
-                    }
-
-                    
-                    HStack {
-                        Text("Fitness (1-10):")
-                        TextField("Enter your fitness level", text: Binding(
-                            get: { String(modifiedUser.fitnessLevel) },
-                            set: { modifiedUser.fitnessLevel = min(max(1, Int($0) ?? 1), 10) }
                         ))
                         .keyboardType(.numberPad)
                     }

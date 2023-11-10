@@ -17,7 +17,6 @@ struct UserDataDisplay: View {
                 Text("Age: \(userViewModel.user.age)")
                 Text("Height: \(String(format: "%.0f", userViewModel.user.height)) cm")
                 Text("Weight: \(String(format: "%.0f", userViewModel.user.weight)) kg")
-                Text("Fitness Level: \(userViewModel.user.fitnessLevel)")
             }
         }
     }

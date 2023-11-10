@@ -13,11 +13,11 @@ import MapKit
 struct PathFinder: View {
     
     @State private var region = MKCoordinateRegion(center: fontane[0].coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-
     @State private var routes: [MKRoute] = []
     @State private var selectedResult: MKMapItem?
-    
     @Binding var pathName: String
+    let locationManager = CLLocationManager()
+    @ObservedObject var user = LocationManager()
     
     var body: some View {
         Map(selection: $selectedResult) {
@@ -34,6 +34,20 @@ struct PathFinder: View {
                 }
                 
             }
+            
+            Annotation("You", coordinate: CLLocationCoordinate2D(latitude: user.latitude, longitude: user.longitude)){
+                
+                ZStack{
+                    Circle()
+                        .foregroundColor(.white)
+                        .font(.system(size: 100))
+                    Circle()
+                        .foregroundColor(.orange)
+                        .font(.system(size: 10))
+                }
+                
+            }
+            
         }
         .onChange(of: selectedResult, {
             getDirections()

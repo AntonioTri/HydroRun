@@ -18,8 +18,11 @@ var p: [MKPlacemark] = fontane.map{ fontana in
 
 // Array delle fontane ( Hannoanche i nomi ) :
 let fontane: [Fontane] = [
+    Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865984, longitude: 14.252219), nome: "Porta Grande"),
+    Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869719, longitude: 14.250227), nome: "Porta Piccola"),
+    Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.879147, longitude: 14.249333), nome: "Porta Miano"),
     Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
-    Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola"),
+    Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola"),
     Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
     Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876592, longitude: 14.250561), nome: "Fagianeria"),
     Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876547, longitude: 14.25154), nome: "Capraia"),
@@ -31,17 +34,20 @@ let fontane: [Fontane] = [
 
 let paths: [String: [Fontane]] = [
     "PG3": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865984, longitude: 14.252219), nome: "Porta Grande"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo")
     ],
     "PG4": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865984, longitude: 14.252219), nome: "Porta Grande"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola")
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola")
     ],
     "PG5": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865984, longitude: 14.252219), nome: "Porta Grande"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876592, longitude: 14.250561), nome: "Fagianeria"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
@@ -49,6 +55,7 @@ let paths: [String: [Fontane]] = [
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
     ],
     "PG6": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865984, longitude: 14.252219), nome: "Porta Grande"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876592, longitude: 14.250561), nome: "Fagianeria"),
@@ -57,8 +64,9 @@ let paths: [String: [Fontane]] = [
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
     ],
     "PG7": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865984, longitude: 14.252219), nome: "Porta Grande"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola"),
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876592, longitude: 14.250561), nome: "Fagianeria"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
@@ -67,8 +75,9 @@ let paths: [String: [Fontane]] = [
         
     ],
     "PG8": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865984, longitude: 14.252219), nome: "Porta Grande"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola"),
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876592, longitude: 14.250561), nome: "Fagianeria"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876547, longitude: 14.25154), nome: "Capraia"),
@@ -77,12 +86,14 @@ let paths: [String: [Fontane]] = [
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
     ],
     "PP3": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869719, longitude: 14.250227), nome: "Porta Piccola"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola")
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola")
         
     ],
     "PP4": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869719, longitude: 14.250227), nome: "Porta Piccola"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.875176, longitude: 14.253907), nome: "Fontana di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
@@ -90,15 +101,17 @@ let paths: [String: [Fontane]] = [
         
     ],
     "PP5": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869719, longitude: 14.250227), nome: "Porta Piccola"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.875176, longitude: 14.253907), nome: "Fontana di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola")
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola")
         
     ],
     "PP6": [
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola"),
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869719, longitude: 14.250227), nome: "Porta Piccola"),
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876592, longitude: 14.250561), nome: "Fagianeria"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.875176, longitude: 14.253907), nome: "Fontana di Mezzo"),
@@ -106,17 +119,19 @@ let paths: [String: [Fontane]] = [
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci")
     ],
     "PP7": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869719, longitude: 14.250227), nome: "Porta Piccola"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.875176, longitude: 14.253907), nome: "Fontana di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876547, longitude: 14.25154), nome: "Capraia"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola")
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola")
         
     ],
     "PP8": [
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola"),
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869719, longitude: 14.250227), nome: "Porta Piccola"),
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.875176, longitude: 14.253907), nome: "Fontana di Mezzo"),
@@ -127,18 +142,22 @@ let paths: [String: [Fontane]] = [
         
     ],
     "PM3": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.879147, longitude: 14.249333), nome: "Porta Miano"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina")
         
     ],
     "PM4": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.879147, longitude: 14.249333), nome: "Porta Miano"),
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876547, longitude: 14.25154), nome: "Capraia"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),  
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina")
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
+        
     ],
     "PM5": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.879147, longitude: 14.249333), nome: "Porta Miano"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876592, longitude: 14.250561), nome: "Fagianeria"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.875176, longitude: 14.253907), nome: "Fontana di Mezzo"),
@@ -146,23 +165,26 @@ let paths: [String: [Fontane]] = [
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci")
     ],
     "PM6": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.879147, longitude: 14.249333), nome: "Porta Miano"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876547, longitude: 14.25154), nome: "Capraia"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.875176, longitude: 14.253907), nome: "Fontana di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola")
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola")
     ],
     "PM7": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.879147, longitude: 14.249333), nome: "Porta Miano"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876547, longitude: 14.25154), nome: "Capraia"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.877143, longitude: 14.257095), nome: "Fabricato S.Gennaro"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.875176, longitude: 14.253907), nome: "Fontana di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola")
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola")
     ],
     "PM8": [
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.879147, longitude: 14.249333), nome: "Porta Miano"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876592, longitude: 14.250561), nome: "Fagianeria"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.878857, longitude: 14.250253), nome: "Casina della Regina"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.876547, longitude: 14.25154), nome: "Capraia"),
@@ -170,7 +192,7 @@ let paths: [String: [Fontane]] = [
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.875176, longitude: 14.253907), nome: "Fontana di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.869202, longitude: 14.251986), nome: "Porta di Mezzo"),
         Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.865639, longitude: 14.249892), nome: "Lecci"),
-        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Porta Piccola")
+        Fontane(coordinate: CLLocationCoordinate2D(latitude: 40.86977, longitude: 14.250434), nome: "Fontana Porta Piccola")
         
     ]
 ]
