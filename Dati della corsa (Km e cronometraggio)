@@ -1,0 +1,58 @@
+#import UIKit
+
+class RunTrackerViewController: UIViewController {
+    
+    // Outlets per gli elementi dell'interfaccia utente
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var startStopButton: UIButton!
+    
+    // Variabili per il conteggio della distanza e il cronometro
+    var distanceInKilometers: Double = 0.0
+    var timer: Timer?
+    var secondsElapsed: Int = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Inizializza l'interfaccia utente
+        distanceLabel.text = "0.0 km"
+        timeLabel.text = "00:00:00"
+    }
+    
+    // Azione chiamata quando viene premuto il pulsante Start/Stop
+    @IBAction func startStopButtonTapped(_ sender: UIButton) {
+        if timer == nil {
+            // Inizia la corsa
+            startStopButton.setTitle("Stop", for: .normal)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        } else {
+            // Termina la corsa
+            startStopButton.setTitle("Start", for: .normal)
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
+    // Metodo chiamato ogni secondo per aggiornare il cronometro
+    @objc func updateTime() {
+        secondsElapsed += 1
+        updateUI()
+    }
+    
+    // Metodo per aggiornare l'interfaccia utente con i dati correnti
+    func updateUI() {
+        // Aggiorna il conteggio dei chilometri
+        distanceInKilometers = Double(secondsElapsed) * 0.001 // Supponendo una velocità costante di 1 m/s
+        distanceLabel.text = String(format: "%.2f km", distanceInKilometers)
+        
+        // Aggiorna il cronometro
+        let hours = secondsElapsed / 3600
+        let minutes = (secondsElapsed % 3600) / 60
+        let seconds = secondsElapsed % 60
+        timeLabel.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
+}
+
+//Ho creato un interfaccia utente con 3 elementi: : una label per la distanza (distanceLabel), 
+una label per il tempo (timeLabel), e un pulsante (startStopButton) per avviare e fermare la corsa. 
+Il calcolo della distanza è basato sul tempo trascorso e su una velocità costante ipotetica di 1 metro al secondo.
